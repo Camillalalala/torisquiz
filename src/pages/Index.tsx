@@ -1,7 +1,6 @@
 
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Home, Palette, Layout } from "lucide-react";
 
@@ -60,22 +59,7 @@ const Index = () => {
             </div>
           </div>
         </section>
-
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Find Your Ideal Home Environment?</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Take our quiz to get personalized recommendations tailored to your unique needs and preferences
-            </p>
-            <Link to="/quiz">
-              <Button size="lg" className="bg-teal-600 hover:bg-teal-700">
-                Start Now
-              </Button>
-            </Link>
-          </div>
-        </section>
       </main>
-      <Footer />
     </div>
   );
 };

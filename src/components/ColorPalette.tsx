@@ -1,66 +1,72 @@
+import { useColorPalette } from '@/hooks/useColorPalette';
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-type ColorItem = {
-  color: string;
-  name: string;
-  usage?: string;
-};
-
-type ColorPaletteProps = {
-  colors: ColorItem[];
+interface ColorPaletteProps {
   loading?: boolean;
-};
+}
 
-const ColorPalette = ({ colors, loading = false }: ColorPaletteProps) => {
-  if (loading) {
+const ColorPalette = ({ loading: externalLoading }: ColorPaletteProps) => {
+  const { palette, loading: paletteLoading, error } = useColorPalette();
+  const isLoading = externalLoading || paletteLoading;
+
+  if (isLoading) {
     return (
-      <Card className="w-full">
-        <CardHeader>
-          <CardTitle>Your Color Palette</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-3 md:grid-cols-5 gap-4 animate-pulse">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="space-y-2">
-                <div className="aspect-square rounded-md bg-gray-200"></div>
-                <div className="h-4 bg-gray-200 rounded w-3/4 mx-auto"></div>
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-xl font-semibold mb-4">Color Palette</h2>
+        <div className="animate-pulse space-y-4">
+          {[...Array(5)].map((_, i) => (
+            <div key={i} className="flex items-center space-x-4">
+              <div className="w-16 h-16 bg-gray-200 rounded-lg" />
+              <div className="space-y-2">
+                <div className="h-4 bg-gray-200 rounded w-24" />
+                <div className="h-3 bg-gray-200 rounded w-32" />
               </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+            </div>
+          ))}
+        </div>
+      </div>
     );
   }
 
+  if (error) {
+    return (
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-xl font-semibold mb-4">Color Palette</h2>
+        <div className="text-red-500">Error: {error}</div>
+      </div>
+    );
+  }
+
+  if (!palette) {
+    return null;
+  }
+
+  const colors = [
+    { color: palette.primary, name: "Primary", usage: "Main elements" },
+    { color: palette.secondary, name: "Secondary", usage: "Supporting elements" },
+    { color: palette.accent, name: "Accent", usage: "Highlights" },
+    { color: palette.background, name: "Background", usage: "Base" },
+    { color: palette.text, name: "Text", usage: "Typography" },
+  ];
+
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle>Your Color Palette</CardTitle>
-      </CardHeader>
-      <CardContent>
-        {colors.length > 0 ? (
-          <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
-            {colors.map((colorItem, index) => (
-              <div key={index} className="text-center space-y-2">
-                <div
-                  className="aspect-square rounded-md mx-auto"
-                  style={{ backgroundColor: colorItem.color }}
-                ></div>
-                <p className="font-medium text-sm">{colorItem.name}</p>
-                {colorItem.usage && (
-                  <p className="text-xs text-gray-500">{colorItem.usage}</p>
-                )}
-              </div>
-            ))}
+    <div className="bg-white rounded-lg shadow-md p-6">
+      <h2 className="text-xl font-semibold mb-4">Your Color Palette</h2>
+      <div className="space-y-4">
+        {colors.map((color, index) => (
+          <div key={index} className="flex items-center space-x-4">
+            <div
+              className="w-16 h-16 rounded-lg shadow-sm"
+              style={{ backgroundColor: color.color }}
+            />
+            <div>
+              <h3 className="font-medium">{color.name}</h3>
+              <p className="text-sm text-gray-600">{color.usage}</p>
+              <p className="text-sm text-gray-500">{color.color}</p>
+            </div>
           </div>
-        ) : (
-          <div className="text-center py-8">
-            <p className="text-gray-500">No color palette generated yet.</p>
-          </div>
-        )}
-      </CardContent>
-    </Card>
+        ))}
+      </div>
+    </div>
   );
 };
 
