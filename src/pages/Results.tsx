@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import MoodBoard from "@/components/MoodBoard";
 import FurnitureRecommendations from "@/components/FurnitureRecommendations";
 import ColorPalette from "@/components/ColorPalette";
@@ -15,7 +14,7 @@ const placeholderMoodBoardImages = [
   "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&q=80",
   "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&q=80",
   "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?w=500&q=80",
-  "https://images.unsplash.com/photo-1617104424032-5ca8cae09e05?w=500&q=80",
+  "https://images.unsplash.com/photo-1616593969747-4797dc75033e?w=500&q=80",
   "https://images.unsplash.com/photo-1616593969747-4797dc75033e?w=500&q=80",
   "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=500&q=80",
 ];
@@ -133,10 +132,7 @@ const ResultsContent = () => {
           />
         </div>
         <div>
-          <ColorPalette 
-            colors={results?.color_palette || placeholderColors} 
-            loading={loading} 
-          />
+          <ColorPalette loading={loading} />
         </div>
       </div>
 
@@ -172,7 +168,6 @@ const Results = () => {
       <main className="flex-grow bg-gray-50">
         <ResultsContent />
       </main>
-      <Footer />
     </div>
   );
 };

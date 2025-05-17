@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import QuizQuestion from "@/components/QuizQuestion";
 import { useQuizState } from "@/hooks/useQuizState";
 import { Progress } from "@/components/ui/progress";
@@ -166,7 +165,6 @@ const Quiz = () => {
       <main className="flex-grow py-8 bg-gray-50">
         <QuizContent />
       </main>
-      <Footer />
     </div>
   );
 };
