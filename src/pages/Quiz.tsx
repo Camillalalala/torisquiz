@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import QuizQuestion from "@/components/QuizQuestion";
 import { useQuizState } from "@/hooks/useQuizState";
 import { Progress } from "@/components/ui/progress";
+import { useEffect, useRef } from "react";
 
 // Quiz content wrapper that provides the context
 const QuizContent = () => {
@@ -16,7 +17,19 @@ const QuizContent = () => {
     setColorPreferences,
     setFunctionalNeeds,
     setLightingPreferences,
+    resetAnswers,
   } = useQuizState();
+
+  // Use a ref to track if this is the first mount
+  const isFirstMount = useRef(true);
+
+  // Reset quiz state only on first mount
+  useEffect(() => {
+    if (isFirstMount.current) {
+      resetAnswers();
+      isFirstMount.current = false;
+    }
+  }, [resetAnswers]);
 
   const handleNext = (selected: string[]) => {
     // Save the answers based on the current step
