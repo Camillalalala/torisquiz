@@ -2,6 +2,7 @@ import { useState, createContext, useContext, ReactNode } from "react";
 
 type QuizAnswers = {
   triggers: string[];
+  additionalTriggers: string;
   desiredFeelings: string[];
   colorPreferences: string[];
   texturePreferences: string[];
@@ -13,6 +14,7 @@ type QuizAnswers = {
 type QuizContextType = {
   answers: QuizAnswers;
   setTriggers: (triggers: string[]) => void;
+  setAdditionalTriggers: (triggers: string) => void;
   setDesiredFeelings: (feelings: string[]) => void;
   setColorPreferences: (colors: string[]) => void;
   setTexturePreferences: (textures: string[]) => void;
@@ -27,6 +29,7 @@ type QuizContextType = {
 
 const initialAnswers: QuizAnswers = {
   triggers: [],
+  additionalTriggers: "",
   desiredFeelings: [],
   colorPreferences: [],
   texturePreferences: [],
@@ -40,10 +43,14 @@ const QuizContext = createContext<QuizContextType | undefined>(undefined);
 export const QuizProvider = ({ children }: { children: ReactNode }) => {
   const [answers, setAnswers] = useState<QuizAnswers>(initialAnswers);
   const [currentStep, setCurrentStep] = useState(1);
-  const totalSteps = 5;
+  const totalSteps = 7;
 
   const setTriggers = (triggers: string[]) => {
     setAnswers((prev) => ({ ...prev, triggers }));
+  };
+
+  const setAdditionalTriggers = (triggers: string) => {
+    setAnswers((prev) => ({ ...prev, additionalTriggers: triggers }));
   };
 
   const setDesiredFeelings = (feelings: string[]) => {
@@ -80,6 +87,7 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
       value={{
         answers,
         setTriggers,
+        setAdditionalTriggers,
         setDesiredFeelings,
         setColorPreferences,
         setTexturePreferences,

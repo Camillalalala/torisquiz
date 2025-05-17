@@ -15,6 +15,7 @@ export type QuizResult = {
   id: string;
   created_at: string;
   triggers: string[];
+  additional_triggers: string;
   desired_feelings: string[];
   color_preferences: string[];
   functional_needs: string[];
