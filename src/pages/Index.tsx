@@ -38,7 +38,7 @@ const Index = () => {
             src={whattoexpectBG} 
             alt="" 
             className="absolute inset-0 w-full h-full object-cover"
-          />*/}
+          />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <h2 className="text-3xl font-bold text-center mb-12">What To Expect?</h2>
             <div className="space-y-8">

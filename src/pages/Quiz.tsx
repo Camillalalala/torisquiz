@@ -95,15 +95,10 @@ const QuizContent = () => {
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-2xl font-semibold mb-4">Trigger Awareness Checklist</h2>
             <p className="text-gray-600 mb-6">
-              Before we begin the quiz, let's take a moment to understand what triggers might affect your living space preferences. 
-              Triggers are environmental factors or situations that can cause discomfort, anxiety, or stress. 
-              Understanding these can help us create a space that feels safe and comfortable for you.
+            Let’s protect your peace. Some sights, sounds, smells, or features can feel overwhelming or remind us of difficult experiences. You can use this page to tell us what you’d prefer to avoid in your new space.
             </p>
             <p className="text-gray-600 mb-6">
-              In the next steps, we'll:
-              1. Review common triggers
-              2. Identify which ones might affect you
-              3. Allow you to share any additional concerns
+            You can skip anything you don’t want to answer — we’ll always honor your comfort.
             </p>
             <button
               onClick={() => handleNext([])}
@@ -140,8 +135,8 @@ const QuizContent = () => {
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-2xl font-semibold mb-4">Additional Triggers</h2>
             <p className="text-gray-600 mb-6">
-              Are there any other specific triggers or concerns that make you feel unsafe or uncomfortable in your living space?
-              This is optional, but sharing can help us better understand your needs.
+              Are there any other things — big or small — that make you feel unsettled or unsafe in a space?
+              (This is optional, but sharing can help us better understand your needs.)
             </p>
             <textarea
               value={additionalTriggers}
