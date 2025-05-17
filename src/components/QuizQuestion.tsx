@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckIcon } from "lucide-react";
@@ -25,19 +24,27 @@ const QuizQuestion = ({
 }: QuizQuestionProps) => {
   const [selected, setSelected] = useState<string[]>([]);
 
+  // Reset selected options when component mounts
+  useEffect(() => {
+    setSelected([]);
+  }, [title]); // Reset when title changes (new question)
+
   const handleOptionClick = (value: string) => {
+    console.log('Option clicked:', value);
     if (multiple) {
-      setSelected((prev) =>
-        prev.includes(value)
-          ? prev.filter((item) => item !== value)
-          : [...prev, value]
-      );
+      const newSelected = selected.includes(value)
+        ? selected.filter((item) => item !== value)
+        : [...selected, value];
+      console.log('New selected values:', newSelected);
+      setSelected(newSelected);
     } else {
+      console.log('Setting single selection:', value);
       setSelected([value]);
     }
   };
 
   const handleNext = () => {
+    console.log('Submitting answers:', selected);
     onNext(selected);
   };
 

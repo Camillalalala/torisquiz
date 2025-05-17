@@ -1,9 +1,8 @@
-
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import QuizQuestion from "@/components/QuizQuestion";
-import { useQuizState, QuizProvider } from "@/hooks/useQuizState";
+import { useQuizState } from "@/hooks/useQuizState";
 import { Progress } from "@/components/ui/progress";
 
 // Quiz content wrapper that provides the context
@@ -162,15 +161,13 @@ const QuizContent = () => {
 
 const Quiz = () => {
   return (
-    <QuizProvider>
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow py-8 bg-gray-50">
-          <QuizContent />
-        </main>
-        <Footer />
-      </div>
-    </QuizProvider>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow py-8 bg-gray-50">
+        <QuizContent />
+      </main>
+      <Footer />
+    </div>
   );
 };
 

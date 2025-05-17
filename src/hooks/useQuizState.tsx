@@ -1,4 +1,3 @@
-
 import { useState, createContext, useContext, ReactNode } from "react";
 
 type QuizAnswers = {
@@ -44,15 +43,30 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
   const totalSteps = 5;
 
   const setTriggers = (triggers: string[]) => {
-    setAnswers((prev) => ({ ...prev, triggers }));
+    console.log('Setting triggers in QuizState:', triggers);
+    setAnswers((prev) => {
+      const newAnswers = { ...prev, triggers };
+      console.log('New QuizState after setting triggers:', newAnswers);
+      return newAnswers;
+    });
   };
 
   const setDesiredFeelings = (feelings: string[]) => {
-    setAnswers((prev) => ({ ...prev, desiredFeelings: feelings }));
+    console.log('Setting desired feelings in QuizState:', feelings);
+    setAnswers((prev) => {
+      const newAnswers = { ...prev, desiredFeelings: feelings };
+      console.log('New QuizState after setting desired feelings:', newAnswers);
+      return newAnswers;
+    });
   };
 
   const setColorPreferences = (colors: string[]) => {
-    setAnswers((prev) => ({ ...prev, colorPreferences: colors }));
+    console.log('Setting color preferences in QuizState:', colors);
+    setAnswers((prev) => {
+      const newAnswers = { ...prev, colorPreferences: colors };
+      console.log('New QuizState after setting color preferences:', newAnswers);
+      return newAnswers;
+    });
   };
 
   const setTexturePreferences = (textures: string[]) => {
@@ -60,11 +74,21 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const setFunctionalNeeds = (needs: string[]) => {
-    setAnswers((prev) => ({ ...prev, functionalNeeds: needs }));
+    console.log('Setting functional needs in QuizState:', needs);
+    setAnswers((prev) => {
+      const newAnswers = { ...prev, functionalNeeds: needs };
+      console.log('New QuizState after setting functional needs:', newAnswers);
+      return newAnswers;
+    });
   };
 
   const setLightingPreferences = (lighting: string) => {
-    setAnswers((prev) => ({ ...prev, lightingPreferences: lighting }));
+    console.log('Setting lighting preferences in QuizState:', lighting);
+    setAnswers((prev) => {
+      const newAnswers = { ...prev, lightingPreferences: lighting };
+      console.log('New QuizState after setting lighting preferences:', newAnswers);
+      return newAnswers;
+    });
   };
 
   const setSpacePreferences = (space: string) => {
