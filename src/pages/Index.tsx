@@ -14,7 +14,7 @@ const Index = () => {
         <section className="bg-gradient-to-b from-teal-50 to-white py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-              Welcome to <span className="text-teal-600">HomeVision</span>
+              Welcome to <span className="text-teal-600">Toriquiz</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
               Discover your perfect living space through our personalized quiz and AI-powered recommendations
