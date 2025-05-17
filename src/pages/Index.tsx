@@ -1,10 +1,12 @@
-
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Home, Palette, Layout } from "lucide-react";
+import { ContactForm } from "@/components/ContactForm";
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -17,11 +19,6 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
               Discover your perfect living space through our personalized quiz and AI-powered recommendations
             </p>
-            <Link to="/quiz">
-              <Button size="lg" className="bg-teal-600 hover:bg-teal-700">
-                Start Your Quiz
-              </Button>
-            </Link>
           </div>
         </section>
 
@@ -57,6 +54,16 @@ const Index = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-center mb-8">Get Started</h2>
+            <p className="text-gray-600 text-center mb-8">
+              Please provide your contact information to begin your design journey
+            </p>
+            <ContactForm />
           </div>
         </section>
       </main>

@@ -154,7 +154,7 @@ const ResultsContent = () => {
 
       <div className="mt-8 text-center text-sm text-gray-500">
         <p>
-          Your quiz results have been saved to your profile.
+          Your quiz results have been saved.
         </p>
       </div>
     </div>
