@@ -11,7 +11,6 @@ import { toast } from "sonner";
 import { supabase } from "@/lib/supabase";
 import type { QuizResult } from "@/lib/supabase";
 
-// Sample placeholder data
 const placeholderMoodBoardImages = [
   "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&q=80",
   "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&q=80",
@@ -47,7 +46,6 @@ const placeholderColors = [
   { color: "#34747A", name: "Deep Teal", usage: "Accent" },
 ];
 
-// Results content component
 const ResultsContent = () => {
   const navigate = useNavigate();
   const { answers, resetAnswers } = useQuizState();
@@ -61,10 +59,6 @@ const ResultsContent = () => {
         setLoading(true);
         setError(null);
 
-        // Log the answers to see what we're working with
-        console.log('Quiz answers:', answers);
-
-        // Create the data object we're going to send
         const dataToSend = {
           triggers: Array.isArray(answers.triggers) ? answers.triggers : [],
           desired_feelings: Array.isArray(answers.desiredFeelings) ? answers.desiredFeelings : [],
@@ -75,15 +69,11 @@ const ResultsContent = () => {
           furniture_recommendations: placeholderFurniture.map(item => ({
             name: item.name,
             description: item.description,
-            image_url: item.imageUrl // Convert imageUrl to image_url to match the database schema
+            image_url: item.imageUrl
           })),
           color_palette: placeholderColors,
         };
 
-        // Log the data we're sending
-        console.log('Data being sent to Supabase:', dataToSend);
-
-        // Save quiz answers to Supabase
         const { data: savedResult, error: saveError } = await supabase
           .from('quiz_results')
           .insert([dataToSend])
@@ -95,7 +85,6 @@ const ResultsContent = () => {
           throw new Error(`Failed to save results: ${saveError.message}`);
         }
 
-        console.log('Successfully saved result:', savedResult);
         setResults(savedResult);
       } catch (error) {
         console.error('Error saving results:', error);
