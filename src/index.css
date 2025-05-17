@@ -1,8 +1,55 @@
+/* Custom Fonts */
+@font-face {
+  font-family: 'Organ Grinder';
+  src: url('@/assets/fonts/OrganGrinder.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Josephin Sans';
+  src: url('@/assets/fonts/JosefinSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YourFontName';
+  src: url('@/assets/fonts/your-font.woff2') format('woff2'),
+       url('@/assets/fonts/your-font.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Add more @font-face declarations for different weights/styles */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  /* Main page headings */
+  .main-page h1, 
+  .main-page h2, 
+  .main-page h3, 
+  .main-page h4, 
+  .main-page h5, 
+  .main-page h6 {
+    @apply font-organ;
+  }
+
+  /* Quiz page headings */
+  .quiz-page h1, 
+  .quiz-page h2, 
+  .quiz-page h3, 
+  .quiz-page h4, 
+  .quiz-page h5, 
+  .quiz-page h6 {
+    @apply font-josephin;
+  }
+  
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -88,14 +135,12 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-josephin;
   }
 }
