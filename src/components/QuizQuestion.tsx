@@ -24,27 +24,22 @@ const QuizQuestion = ({
 }: QuizQuestionProps) => {
   const [selected, setSelected] = useState<string[]>([]);
 
-  // Reset selected options when component mounts
   useEffect(() => {
     setSelected([]);
-  }, [title]); // Reset when title changes (new question)
+  }, [title]);
 
   const handleOptionClick = (value: string) => {
-    console.log('Option clicked:', value);
     if (multiple) {
       const newSelected = selected.includes(value)
         ? selected.filter((item) => item !== value)
         : [...selected, value];
-      console.log('New selected values:', newSelected);
       setSelected(newSelected);
     } else {
-      console.log('Setting single selection:', value);
       setSelected([value]);
     }
   };
 
   const handleNext = () => {
-    console.log('Submitting answers:', selected);
     onNext(selected);
   };
 
