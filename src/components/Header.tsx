@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
 
@@ -10,7 +9,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <Home className="h-6 w-6 text-teal-600 mr-2" />
-              <span className="text-xl font-semibold text-gray-800">HomeVision</span>
+              <span className="text-xl font-semibold text-gray-800">Toriquiz</span>
             </Link>
           </div>
           <nav className="flex items-center space-x-4">

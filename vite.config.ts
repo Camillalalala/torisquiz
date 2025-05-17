@@ -14,4 +14,8 @@ export default defineConfig(({ mode }) => ({
       "@": resolve(__dirname, "./src"),
     },
   },
+  assetsInclude: ['**/*.svg'],
+  optimizeDeps: {
+    include: ['@svgr/webpack'],
+  },
 }));

@@ -60,6 +60,7 @@ const ResultsContent = () => {
 
         const dataToSend = {
           triggers: Array.isArray(answers.triggers) ? answers.triggers : [],
+          additional_triggers: answers.additionalTriggers || '',
           desired_feelings: Array.isArray(answers.desiredFeelings) ? answers.desiredFeelings : [],
           color_preferences: Array.isArray(answers.colorPreferences) ? answers.colorPreferences : [],
           functional_needs: Array.isArray(answers.functionalNeeds) ? answers.functionalNeeds : [],
@@ -72,6 +73,12 @@ const ResultsContent = () => {
           })),
           color_palette: placeholderColors,
         };
+
+        // Log the data being sent to verify triggers
+        console.log('Saving quiz results:', {
+          triggers: dataToSend.triggers,
+          additional_triggers: dataToSend.additional_triggers
+        });
 
         const { data: savedResult, error: saveError } = await supabase
           .from('quiz_results')

@@ -62,32 +62,31 @@ export const ContactForm = () => {
     <form onSubmit={handleSubmit} className="space-y-6 max-w-md mx-auto">
       <div className="space-y-4">
         <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="firstName">First Name</Label>
+          <div>
             <Input
               id="firstName"
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
               required
-              placeholder="John"
+              placeholder="First Name"
+              className="text-xl md:text-2xl"
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="lastName">Last Name</Label>
+          <div>
             <Input
               id="lastName"
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
               required
-              placeholder="Doe"
+              placeholder="Last Name"
+              className="text-xl md:text-2xl"
             />
           </div>
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
+        <div>
           <Input
             id="email"
             name="email"
@@ -95,12 +94,12 @@ export const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            placeholder="john.doe@example.com"
+            placeholder="Email"
+            className="text-xl md:text-2xl"
           />
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="phoneNumber">Phone Number</Label>
+        <div>
           <Input
             id="phoneNumber"
             name="phoneNumber"
@@ -108,12 +107,13 @@ export const ContactForm = () => {
             value={formData.phoneNumber}
             onChange={handleChange}
             required
-            placeholder="(123) 456-7890"
+            placeholder="Phone Number"
+            className="text-xl md:text-2xl"
           />
         </div>
       </div>
 
-      <Button type="submit" className="w-full bg-teal-600 hover:bg-teal-700" disabled={loading}>
+      <Button type="submit" className="w-full bg-teal-600 hover:bg-teal-700 text-xl md:text-2xl" disabled={loading}>
         {loading ? "Saving..." : "Take the Quiz"}
       </Button>
     </form>
