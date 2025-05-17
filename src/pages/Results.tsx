@@ -11,7 +11,7 @@ import { toast } from "sonner";
 import { supabase } from "@/lib/supabase";
 import type { QuizResult } from "@/lib/supabase";
 
-// Sample placeholder data (in a real app, this would come from Supabase)
+// Sample placeholder data
 const placeholderMoodBoardImages = [
   "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&q=80",
   "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&q=80",
@@ -53,10 +53,17 @@ const ResultsContent = () => {
   const { answers, resetAnswers } = useQuizState();
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState<QuizResult | null>(null);
+  const [error, setError] = useState<string | null>(null);
   
   useEffect(() => {
     const saveAndFetchResults = async () => {
       try {
+        setLoading(true);
+        setError(null);
+
+        // Log the answers to see what we're working with
+        console.log('Quiz answers:', answers);
+
         // Create the data object we're going to send
         const dataToSend = {
           triggers: Array.isArray(answers.triggers) ? answers.triggers : [],
@@ -65,9 +72,16 @@ const ResultsContent = () => {
           functional_needs: Array.isArray(answers.functionalNeeds) ? answers.functionalNeeds : [],
           lighting_preferences: typeof answers.lightingPreferences === 'string' ? answers.lightingPreferences : '',
           mood_board_images: placeholderMoodBoardImages,
-          furniture_recommendations: placeholderFurniture,
+          furniture_recommendations: placeholderFurniture.map(item => ({
+            name: item.name,
+            description: item.description,
+            image_url: item.imageUrl // Convert imageUrl to image_url to match the database schema
+          })),
           color_palette: placeholderColors,
         };
+
+        // Log the data we're sending
+        console.log('Data being sent to Supabase:', dataToSend);
 
         // Save quiz answers to Supabase
         const { data: savedResult, error: saveError } = await supabase
@@ -77,43 +91,41 @@ const ResultsContent = () => {
           .single();
 
         if (saveError) {
-          console.error('Supabase save error:', saveError);
-          throw saveError;
+          console.error('Supabase save error details:', saveError);
+          throw new Error(`Failed to save results: ${saveError.message}`);
         }
 
-        // Fetch the saved result
-        const { data: fetchedResult, error: fetchError } = await supabase
-          .from('quiz_results')
-          .select('*')
-          .eq('id', savedResult.id)
-          .single();
-
-        if (fetchError) {
-          console.error('Supabase fetch error:', fetchError);
-          throw fetchError;
-        }
-
-        setResults(fetchedResult);
-        setLoading(false);
+        console.log('Successfully saved result:', savedResult);
+        setResults(savedResult);
       } catch (error) {
-        console.error('Error saving/fetching results:', error);
-        toast.error('Failed to save quiz results');
+        console.error('Error saving results:', error);
+        const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+        setError(errorMessage);
+        toast.error(`Failed to save quiz results: ${errorMessage}`);
+      } finally {
         setLoading(false);
       }
     };
 
-    // Add a small delay to ensure state is properly loaded
-    const timer = setTimeout(() => {
-      saveAndFetchResults();
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []); // Keep empty dependency array
+    saveAndFetchResults();
+  }, [answers]);
 
   const handleStartOver = () => {
     resetAnswers();
     navigate("/quiz");
   };
+
+  if (error) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-red-600 mb-4">Error</h2>
+          <p className="text-gray-600 mb-4">{error}</p>
+          <Button onClick={handleStartOver}>Try Again</Button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
