@@ -7,6 +7,7 @@ import { QuizProvider } from "@/hooks/useQuizState";
 import Index from "./pages/Index";
 import Quiz from "./pages/Quiz";
 import Results from "./pages/Results";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
         <QuizProvider>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/results" element={<Results />} />
             <Route path="*" element={<NotFound />} />
