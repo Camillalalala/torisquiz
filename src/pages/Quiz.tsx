@@ -234,9 +234,9 @@ const QuizContent = () => {
   };
 
   return (
-    <div className="p-4 max-w-4xl mx-auto">
-      <div className="mb-8">
-        <div className="flex justify-between text-sm mb-2">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
+      <div className="mb-6 md:mb-8">
+        <div className="flex justify-between text-xs md:text-sm mb-2">
           <span>Question {currentStep} of {totalSteps}</span>
           <span>{Math.round((currentStep / totalSteps) * 100)}%</span>
         </div>
@@ -253,16 +253,16 @@ const Quiz = () => {
   return (
     <div className="min-h-screen flex flex-col quiz-page">
       <Header />
-      <main className="flex-grow py-8 bg-[#F9F0E3] relative">
+      <main className="flex-grow py-6 md:py-8 bg-[#F9F0E3] relative">
         <img 
           src={flowerLeft} 
           alt="" 
-          className="absolute left-0 top-1/2 -translate-y-1/2 w-56 md:w-64 opacity-70"
+          className="absolute left-0 top-1/2 -translate-y-1/2 w-40 sm:w-48 md:w-56 lg:w-64 opacity-70"
         />
         <img 
           src={flowerRight} 
           alt="" 
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-56 md:w-64 opacity-70"
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-40 sm:w-48 md:w-56 lg:w-64 opacity-70"
         />
         <div className="relative z-10">
           <QuizContent />
