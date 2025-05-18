@@ -11,12 +11,12 @@ import { supabase } from "@/lib/supabase";
 import type { QuizResult } from "@/lib/supabase";
 
 const placeholderMoodBoardImages = [
-  "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&q=80",
-  "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&q=80",
-  "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?w=500&q=80",
-  "https://images.unsplash.com/photo-1616593969747-4797dc75033e?w=500&q=80",
-  "https://images.unsplash.com/photo-1616593969747-4797dc75033e?w=500&q=80",
-  "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=500&q=80",
+  "https://images.unsplash.com/photo-1713528301217-e388dc80ff7c?q=80&w=1978&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1581209410127-8211e90da024?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://plus.unsplash.com/premium_photo-1727183904698-7a7963066170?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://plus.unsplash.com/premium_photo-1728591903375-b73c2adb5f29?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1737953104974-78639e30d6e2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://plus.unsplash.com/premium_photo-1676968003551-47c330526b09?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 ];
 
 const placeholderFurniture = [
