@@ -8,15 +8,15 @@ const Header = () => {
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <Home className="h-6 w-6 text-teal-600 mr-2" />
-              <span className="text-xl font-semibold text-gray-800">Toriquiz</span>
+              <Home className="h-6 w-6 text-[#640A09] mr-2" />
+              <span className="text-xl font-semibold text-[#640A09]">Toriquiz</span>
             </Link>
           </div>
           <nav className="flex items-center space-x-4">
-            <Link to="/" className="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">
+            <Link to="/" className="text-[#640A09] hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">
               Home
             </Link>
-            <Link to="/quiz" className="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">
+            <Link to="/quiz" className="text-[#640A09] hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">
               Quiz
             </Link>
           </nav>

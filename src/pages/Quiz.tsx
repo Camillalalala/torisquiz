@@ -248,7 +248,7 @@ const Quiz = () => {
   return (
     <div className="min-h-screen flex flex-col quiz-page">
       <Header />
-      <main className="flex-grow py-8 bg-gray-50">
+      <main className="flex-grow py-8 bg-[#F9F0E3]">
         <QuizContent />
       </main>
     </div>
