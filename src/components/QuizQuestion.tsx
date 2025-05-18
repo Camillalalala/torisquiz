@@ -47,18 +47,18 @@ const QuizQuestion = ({
     //Return here to change background color of the card
     <Card className="w-full max-w-3xl mx-auto border-gray-600 bg-[#E1C2CF]">
       <CardHeader>
-        <CardTitle className="text-2xl text-center">{title}</CardTitle>
+        <CardTitle className="text-xl md:text-2xl lg:text-3xl text-center">{title}</CardTitle>
         {description && (
-          <CardDescription className="text-center text-black">{description}</CardDescription>
+          <CardDescription className="text-center text-black text-sm md:text-base">{description}</CardDescription>
         )}
       </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <CardContent>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
           {options.map((option) => (
             <div
               key={option.value}
               className={`
-                p-4 border rounded-md cursor-pointer transition-all
+                p-3 md:p-4 border rounded-md cursor-pointer transition-all
                 ${
                   selected.includes(option.value)
                     ? "border-teal-500 bg-teal-100"
@@ -68,9 +68,9 @@ const QuizQuestion = ({
               onClick={() => handleOptionClick(option.value)}
             >
               <div className="flex items-center justify-between">
-                <span className="font-medium">{option.label}</span>
+                <span className="font-medium text-sm md:text-base">{option.label}</span>
                 {selected.includes(option.value) && (
-                  <CheckIcon className="h-5 w-5 text-teal-600" />
+                  <CheckIcon className="h-4 w-4 md:h-5 md:w-5 text-teal-600" />
                 )}
               </div>
             </div>
@@ -79,7 +79,7 @@ const QuizQuestion = ({
       </CardContent>
       <CardFooter className="flex justify-between">
         {onBack ? (
-          <Button variant="outline" onClick={onBack}>
+          <Button variant="outline" onClick={onBack} className="text-sm md:text-base">
             Back
           </Button>
         ) : (
@@ -88,6 +88,7 @@ const QuizQuestion = ({
         <Button 
           onClick={handleNext}
           disabled={selected.length === 0}
+          className="text-sm md:text-base"
         >
           {isLastQuestion ? "See Results" : "Next Question"}
         </Button>

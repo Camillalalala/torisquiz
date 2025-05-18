@@ -112,10 +112,10 @@ const ResultsContent = () => {
 
   if (error) {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-red-600 mb-4">Error</h2>
-          <p className="text-gray-600 mb-4">{error}</p>
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-red-600 mb-4">Error</h2>
+          <p className="text-gray-600 text-sm md:text-base mb-4">{error}</p>
           <Button onClick={handleStartOver}>Try Again</Button>
         </div>
       </div>
@@ -123,43 +123,47 @@ const ResultsContent = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold mb-4 text-[#640A09]">Your Personalized Results</h1>
-        <p className="text-[#640A09] max-w-2xl mx-auto">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
+      <div className="text-center mb-6 md:mb-8">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 text-[#640A09]">Your Personalized Results</h1>
+        <p className="text-[#640A09] text-sm md:text-base lg:text-lg max-w-2xl mx-auto">
           Based on your preferences, we've created recommendations for your ideal living space
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-        <div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
+        <div className="w-full">
           <MoodBoard 
             images={results?.mood_board_images || placeholderMoodBoardImages} 
             loading={loading} 
           />
         </div>
-        <div>
+        <div className="w-full">
           <ColorPalette loading={loading} />
         </div>
       </div>
 
-      <div className="mb-12">
+      <div className="mb-8 md:mb-12">
         <FurnitureRecommendations 
           recommendations={results?.furniture_recommendations || placeholderFurniture} 
           loading={loading} 
         />
       </div>
 
-      <div className="flex justify-center space-x-4">
-        <Button variant="outline" onClick={handleStartOver}>
+      <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <Button 
+          variant="outline" 
+          onClick={handleStartOver}
+          className="w-full sm:w-auto"
+        >
           Start Over
         </Button>
-        <Link to="/">
-          <Button>Back to Home</Button>
+        <Link to="/" className="w-full sm:w-auto">
+          <Button className="w-full">Back to Home</Button>
         </Link>
       </div>
 
-      <div className="mt-8 text-center text-sm text-gray-500">
+      <div className="mt-6 md:mt-8 text-center text-xs md:text-sm text-gray-500">
         <p>
           Your quiz results have been saved.
         </p>
