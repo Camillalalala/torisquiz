@@ -113,8 +113,8 @@ export const ContactForm = () => {
         </div>
       </div>
 
-      <Button type="submit" className="w-full bg-teal-600 hover:bg-teal-700 text-xl md:text-2xl" disabled={loading}>
-        {loading ? "Saving..." : "Take the Quiz"}
+      <Button type="submit" className="w-full bg-[#640A09] hover:bg-gray-600 text-xl md:text-2xl font-organ tracking-widest" disabled={loading}>
+        {loading ? "Saving..." : "Begin Quiz"}
       </Button>
     </form>
   );

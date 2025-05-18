@@ -37,7 +37,8 @@
   .main-page h4, 
   .main-page h5, 
   .main-page h6 {
-    @apply font-organ;
+    @apply font-organ tracking-widest;
+    @apply text-[#640A09];
   }
 
   /* Quiz page headings */

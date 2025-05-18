@@ -11,7 +11,7 @@ const ColorPalette = ({ loading: externalLoading }: ColorPaletteProps) => {
   if (isLoading) {
     return (
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold mb-4">Color Palette</h2>
+        <h2 className="text-2xl font-semibold mb-4">Color Palette</h2>
         <div className="animate-pulse space-y-4">
           {[...Array(5)].map((_, i) => (
             <div key={i} className="flex items-center space-x-4">
@@ -30,7 +30,7 @@ const ColorPalette = ({ loading: externalLoading }: ColorPaletteProps) => {
   if (error) {
     return (
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold mb-4">Color Palette</h2>
+        <h2 className="text-2xl font-semibold mb-4">Color Palette</h2>
         <div className="text-red-500">Error: {error}</div>
       </div>
     );
@@ -50,7 +50,7 @@ const ColorPalette = ({ loading: externalLoading }: ColorPaletteProps) => {
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-xl font-semibold mb-4">Your Color Palette</h2>
+      <h2 className="text-2xl font-semibold mb-4">Your Color Palette</h2>
       <div className="space-y-4">
         {colors.map((color, index) => (
           <div key={index} className="flex items-center space-x-4">

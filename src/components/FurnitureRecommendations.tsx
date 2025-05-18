@@ -1,10 +1,10 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type FurnitureItem = {
   name: string;
   description: string;
   imageUrl?: string;
+  image_url?: string;
 };
 
 type FurnitureRecommendationsProps = {
@@ -18,19 +18,18 @@ const FurnitureRecommendations = ({
 }: FurnitureRecommendationsProps) => {
   if (loading) {
     return (
-      <Card className="w-full">
+      <Card className="w-full shadow-md">
         <CardHeader>
           <CardTitle>Furniture Recommendations</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4 animate-pulse">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-pulse">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="flex space-x-4">
-                <div className="w-16 h-16 rounded-md bg-gray-200"></div>
-                <div className="flex-1 space-y-2">
+              <div key={i} className="space-y-4">
+                <div className="aspect-video bg-gray-200 rounded-md"></div>
+                <div className="space-y-2">
                   <div className="h-4 bg-gray-200 rounded w-3/4"></div>
                   <div className="h-4 bg-gray-200 rounded"></div>
-                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
                 </div>
               </div>
             ))}
@@ -41,26 +40,26 @@ const FurnitureRecommendations = ({
   }
 
   return (
-    <Card className="w-full">
+    <Card className="w-full shadow-md">
       <CardHeader>
         <CardTitle>Furniture Recommendations</CardTitle>
       </CardHeader>
       <CardContent>
         {recommendations.length > 0 ? (
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {recommendations.map((item, index) => (
-              <div key={index} className="flex space-x-4">
-                {item.imageUrl && (
+              <Card key={index} className="overflow-hidden">
+                {(item.imageUrl || item.image_url) && (
                   <div 
-                    className="w-20 h-20 bg-cover bg-center rounded-md flex-shrink-0"
-                    style={{ backgroundImage: `url(${item.imageUrl})` }}
-                  ></div>
+                    className="aspect-video bg-cover bg-center"
+                    style={{ backgroundImage: `url(${item.imageUrl || item.image_url})` }}
+                  />
                 )}
-                <div>
-                  <h3 className="font-medium">{item.name}</h3>
+                <CardContent className="p-4">
+                  <h3 className="font-medium text-lg mb-2">{item.name}</h3>
                   <p className="text-sm text-gray-600">{item.description}</p>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         ) : (
