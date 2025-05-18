@@ -19,6 +19,9 @@ const Header = () => {
             <Link to="/quiz" className="text-[#640A09] hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium">
               Quiz
             </Link>
+            <Link to="/stories" className="text-[#640A09] hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium">
+              Success Stories
+            </Link>
           </nav>
         </div>
       </div>
