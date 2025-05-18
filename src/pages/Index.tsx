@@ -7,6 +7,9 @@ import whattoexpectBG from "@/assets/shapes/whattoexpectBG.svg";
 import yourprivacymattersBG from "@/assets/shapes/yourprivacymattersBG.svg";
 import pinkRectangle from "@/assets/shapes/pinkRectangle.svg";
 import toriLogo from "@/assets/shapes/toriLogo.svg";
+import pinkEllipse from "@/assets/shapes/pinkEllipse.svg";
+import yellowEllipse from "@/assets/shapes/yellowEllipse.svg";
+import hands from "@/assets/shapes/hands.svg";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -16,7 +19,7 @@ const Index = () => {
       <Header />
       <main className="flex-grow">
       <section className="bg-[#F9F0E3] py-16 md:py-24 relative overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-center relative z-10">
             {/* Left Column: Logo */}
             <div className="flex justify-center">
               <img 
@@ -32,7 +35,7 @@ const Index = () => {
                 WELCOME TO TORIQUIZ!
               </h1>
               <p className="text-lg md:text-xl mb-4 text-center">
-                We’re so glad you’re here. This quiz was created to help us design a home that feels safe, calming, and truly yours.
+                We're so glad you're here. This quiz was created to help us design a home that feels safe, calming, and truly yours.
               </p>
               <p className="text-lg md:text-xl text-center">
                 This tool will help us get to know your preferences, needs, and what feels comforting so we can create a personalized, grounded environment for you.
@@ -42,11 +45,16 @@ const Index = () => {
       </section>
 
       <section className="py-16 bg-[#DDECE2] relative overflow-hidden">
-        {/*<img 
-          src={whattoexpectBG} 
-          alt="" 
-          className="absolute top-0 left-0 w-full h-screen object-scale-down"
-        />*/}
+          <img 
+            src={pinkEllipse} 
+            alt="" 
+            className="absolute right-0 top-[42.5%] w-48 md:w-64 opacity-70"
+          />
+          <img 
+            src={yellowEllipse} 
+            alt="" 
+            className="absolute -left-20 top-[2.5%] w-48 md:w-64 opacity-70"
+          />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#640A09] font-serif">What To Expect?</h2>
           
@@ -94,11 +102,11 @@ const Index = () => {
         </section>
 
         <section className="py-16 md:py-24 relative overflow-hidden bg-[#E1C2CF]">
-          {/*<img 
-            src={yourprivacymattersBG} 
+        <img 
+            src={hands} 
             alt="" 
-            className="absolute inset-0 w-full h-full object-cover"
-          />*/}
+            className="absolute left-1/2 top-[85%] -translate-x-1/2 -translate-y-1/2 w-98 md:w-64 opacity-70"
+          />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h2 className="text-3xl font-bold text-center mb-12">Your Privacy Matters.</h2>
             <p className="text-xl md:text-2xl text-[#640A09] max-w-3xl mx-auto mb-8">
