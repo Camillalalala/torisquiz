@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type MoodBoardProps = {
@@ -9,7 +8,7 @@ type MoodBoardProps = {
 const MoodBoard = ({ images, loading = false }: MoodBoardProps) => {
   if (loading) {
     return (
-      <Card className="w-full">
+      <Card className="w-full shadow-md">
         <CardHeader>
           <CardTitle>Your Mood Board</CardTitle>
         </CardHeader>
@@ -28,7 +27,7 @@ const MoodBoard = ({ images, loading = false }: MoodBoardProps) => {
   }
 
   return (
-    <Card className="w-full">
+    <Card className="w-full shadow-md">
       <CardHeader>
         <CardTitle>Your Mood Board</CardTitle>
       </CardHeader>
