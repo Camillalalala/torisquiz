@@ -44,7 +44,7 @@ const QuizQuestion = ({
   };
 
   return (
-    <Card className="w-full max-w-3xl mx-auto">
+    <Card className="w-full max-w-3xl mx-auto border-gray-600">
       <CardHeader>
         <CardTitle className="text-2xl text-center">{title}</CardTitle>
         {description && (
@@ -61,7 +61,7 @@ const QuizQuestion = ({
                 ${
                   selected.includes(option.value)
                     ? "border-teal-500 bg-teal-50"
-                    : "border-gray-200 hover:border-teal-300"
+                    : "border-gray-600 hover:border-[#640A09]"
                 }
               `}
               onClick={() => handleOptionClick(option.value)}
@@ -76,7 +76,7 @@ const QuizQuestion = ({
           ))}
         </div>
         {multiple && (
-          <p className="text-sm text-gray-500 text-center">
+          <p className="text-sm text-gray-600 text-center">
             Select all that apply
           </p>
         )}

@@ -4,6 +4,8 @@ import QuizQuestion from "@/components/QuizQuestion";
 import { useQuizState } from "@/hooks/useQuizState";
 import { Progress } from "@/components/ui/progress";
 import { useEffect, useRef, useState } from "react";
+import flowerLeft from "@/assets/shapes/flowerLeft.svg";
+import flowerRight from "@/assets/shapes/flowerRight.svg";
 
 // Quiz content wrapper that provides the context
 const QuizContent = () => {
@@ -93,12 +95,15 @@ const QuizContent = () => {
       case 1:
         return (
           <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-2xl font-semibold mb-4">Trigger Awareness Checklist</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-center font-organ">Your Comfort Comes First</h2>
             <p className="text-gray-600 mb-6">
-            Let’s protect your peace. Some sights, sounds, smells, or features can feel overwhelming or remind us of difficult experiences. You can use this page to tell us what you’d prefer to avoid in your new space.
+            We understand that certain sights, sounds, textures, or experiences may feel overwhelming or unsafe.
             </p>
             <p className="text-gray-600 mb-6">
-            You can skip anything you don’t want to answer — we’ll always honor your comfort.
+            The next few questions helps us know what to avoid in your home design — so we don't include anything that might feel upsetting or triggering.
+            </p>
+            <p className="text-gray-600 mb-6">
+              You're welcome to skip any question. Your well-being and comfort are our top priorities.
             </p>
             <button
               onClick={() => handleNext([])}
@@ -114,15 +119,13 @@ const QuizContent = () => {
             title="Which of these triggers might affect you in your living space?"
             description="Select all that apply to you"
             options={[
-              { value: "loud-noises", label: "Loud or sudden noises" },
               { value: "bright-lights", label: "Bright or flashing lights" },
-              { value: "crowded-spaces", label: "Crowded or confined spaces" },
-              { value: "temperature", label: "Extreme temperatures" },
+              { value: "darkness", label: "Darkness or poorly lit areas" },
+              { value: "colors", label: "Certain colors" },
               { value: "strong-smells", label: "Strong or chemical smells" },
               { value: "clutter", label: "Clutter or disorganization" },
-              { value: "unpredictable", label: "Unpredictable environments" },
-              { value: "social", label: "Social interactions" },
-              { value: "sensory", label: "Sensory overload" },
+              { value: "materials", label: "Certain materials" },
+              { value: "enclosed-spaces", label: "Small, enclosed spaces" },
               preferNotToAnswer,
             ]}
             multiple={true}
@@ -239,7 +242,9 @@ const QuizContent = () => {
         </div>
         <Progress value={(currentStep / totalSteps) * 100} className="h-2" />
       </div>
-      {renderCurrentQuestion()}
+      {/*<div className="bg-[#E1C2CF] p-8 rounded-3xl shadow-lg">*/}
+        {renderCurrentQuestion()}
+      {/*</div>*/}
     </div>
   );
 };
@@ -248,8 +253,20 @@ const Quiz = () => {
   return (
     <div className="min-h-screen flex flex-col quiz-page">
       <Header />
-      <main className="flex-grow py-8 bg-[#F9F0E3]">
-        <QuizContent />
+      <main className="flex-grow py-8 bg-[#F9F0E3] relative">
+        <img 
+          src={flowerLeft} 
+          alt="" 
+          className="absolute left-0 top-1/2 -translate-y-1/2 w-56 md:w-64 opacity-70"
+        />
+        <img 
+          src={flowerRight} 
+          alt="" 
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-56 md:w-64 opacity-70"
+        />
+        <div className="relative z-10">
+          <QuizContent />
+        </div>
       </main>
     </div>
   );

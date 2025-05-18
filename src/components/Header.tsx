@@ -13,10 +13,10 @@ const Header = () => {
             </Link>
           </div>
           <nav className="flex items-center space-x-4">
-            <Link to="/" className="text-[#640A09] hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">
+            <Link to="/" className="text-[#640A09] hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium">
               Home
             </Link>
-            <Link to="/quiz" className="text-[#640A09] hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">
+            <Link to="/quiz" className="text-[#640A09] hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium">
               Quiz
             </Link>
           </nav>

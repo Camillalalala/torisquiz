@@ -28,7 +28,7 @@ const Index = () => {
             
             {/* Right Column: Welcome Text */}
             <div className="bg-[#E1C2CF] p-8 md:p-12 rounded-3xl text-[#640A09] shadow-lg w-full max-w-xl">
-              <h1 className="text-3xl md:text-4xl font-bold mb-6 font-serif text-center">
+              <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center">
                 WELCOME TO TORIQUIZ!
               </h1>
               <p className="text-lg md:text-xl mb-4 text-center">
@@ -83,9 +83,13 @@ const Index = () => {
       </section>
 
         <section className="py-16 bg-[#F9F0E3]">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center mb-8">Let's Get Started</h2>
-            <ContactForm />
+          <div className="flex justify-center items-center">
+            <div className="bg-[#E1C2CF] p-8 md:p-12 rounded-3xl text-[#640A09] shadow-lg w-full max-w-xl">
+              <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-3xl font-bold text-center mb-8">Let's Get Started</h2>
+                <ContactForm />
+              </div>
+            </div>
           </div>
         </section>
 
