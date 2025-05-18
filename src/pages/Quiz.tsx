@@ -94,15 +94,15 @@ const QuizContent = () => {
     switch (currentStep) {
       case 1:
         return (
-          <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="bg-[#E1C2CF] rounded-lg shadow-sm p-6">
             <h2 className="text-2xl font-semibold mb-4 text-center font-organ">Your Comfort Comes First</h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-black mb-6">
             We understand that certain sights, sounds, textures, or experiences may feel overwhelming or unsafe.
             </p>
-            <p className="text-gray-600 mb-6">
+            <p className="text-black mb-6">
             The next few questions helps us know what to avoid in your home design — so we don't include anything that might feel upsetting or triggering.
             </p>
-            <p className="text-gray-600 mb-6">
+            <p className="text-black mb-6">
               You're welcome to skip any question. Your well-being and comfort are our top priorities.
             </p>
             <button
@@ -135,9 +135,9 @@ const QuizContent = () => {
         );
       case 3:
         return (
-          <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="bg-[#E1C2CF] rounded-lg shadow-sm p-6">
             <h2 className="text-2xl font-semibold mb-4">Additional Triggers</h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-black mb-6">
               Are there any other things — big or small — that make you feel unsettled or unsafe in a space?
               (This is optional, but sharing can help us better understand your needs.)
             </p>
@@ -240,7 +240,7 @@ const QuizContent = () => {
           <span>Question {currentStep} of {totalSteps}</span>
           <span>{Math.round((currentStep / totalSteps) * 100)}%</span>
         </div>
-        <Progress value={(currentStep / totalSteps) * 100} className="h-2" />
+        <Progress value={(currentStep / totalSteps) * 100} className="h-2 bg-white border border-gray-600 rounded-full" />
       </div>
       {/*<div className="bg-[#E1C2CF] p-8 rounded-3xl shadow-lg">*/}
         {renderCurrentQuestion()}

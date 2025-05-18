@@ -44,11 +44,12 @@ const QuizQuestion = ({
   };
 
   return (
-    <Card className="w-full max-w-3xl mx-auto border-gray-600">
+    //Return here to change background color of the card
+    <Card className="w-full max-w-3xl mx-auto border-gray-600 bg-[#E1C2CF]">
       <CardHeader>
         <CardTitle className="text-2xl text-center">{title}</CardTitle>
         {description && (
-          <CardDescription className="text-center">{description}</CardDescription>
+          <CardDescription className="text-center text-black">{description}</CardDescription>
         )}
       </CardHeader>
       <CardContent className="space-y-4">
@@ -60,8 +61,8 @@ const QuizQuestion = ({
                 p-4 border rounded-md cursor-pointer transition-all
                 ${
                   selected.includes(option.value)
-                    ? "border-teal-500 bg-teal-50"
-                    : "border-gray-600 hover:border-[#640A09]"
+                    ? "border-teal-500 bg-teal-100"
+                    : "border-gray-600 hover:border-[#640A09] bg-white"
                 }
               `}
               onClick={() => handleOptionClick(option.value)}
@@ -69,17 +70,12 @@ const QuizQuestion = ({
               <div className="flex items-center justify-between">
                 <span className="font-medium">{option.label}</span>
                 {selected.includes(option.value) && (
-                  <CheckIcon className="h-5 w-5 text-teal-500" />
+                  <CheckIcon className="h-5 w-5 text-teal-600" />
                 )}
               </div>
             </div>
           ))}
         </div>
-        {multiple && (
-          <p className="text-sm text-gray-600 text-center">
-            Select all that apply
-          </p>
-        )}
       </CardContent>
       <CardFooter className="flex justify-between">
         {onBack ? (
